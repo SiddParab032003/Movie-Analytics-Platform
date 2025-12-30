@@ -93,6 +93,51 @@ Power BI (Executive Dashboards)
 - Idempotent enrichment pipeline
 
 ---
+#  Project Structure
+
+movie_analytics/
+│
+├── sql/
+│   └── schema_and_data.sql
+│
+├── backend/
+│   ├── main.py               # FastAPI backend
+│   ├── tmdb_enrich.py        # TMDB data enrichment
+│
+├── streamlit_app/
+│   └── app.py                # Streamlit analytics UI
+│
+├── powerbi/
+│   └── MovieAnalytics.pbix   # Power BI dashboard
+│
+└── README.md
+
+---
+
+##  Database Design
+
+Tables:
+- movies
+- shows
+- bookings
+- users
+- theatres
+- cities
+
+Relationships:
+- movies → shows → bookings
+- cities → theatres → shows
+- users → bookings
+
+---
+
+##  Backend APIs (FastAPI)
+
+- GET /movies  
+- GET /analytics/movie?name=MovieName  
+- GET /analytics/rating-vs-revenue  
+
+The backend connects to SQL Server and returns analytics as JSON.
 
 ##  Key Insights Enabled
 
@@ -103,11 +148,6 @@ Power BI (Executive Dashboards)
 
 ---
 
-##  Resume-Ready Description
-
-> Built an end-to-end movie analytics platform using MS SQL Server, FastAPI, Python, Streamlit, and Power BI. Integrated external TMDB metadata with booking data to analyze movie ratings, revenue, bookings, and city-wise performance via APIs and dashboards.
-
----
 
 ##  Status
 
