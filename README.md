@@ -93,7 +93,7 @@ Power BI (Executive Dashboards)
 - Idempotent enrichment pipeline
 
 ---
-#  Project Structure
+##  Project Structure
 
 movie_analytics/
 │
@@ -155,6 +155,20 @@ The backend connects to SQL Server and returns analytics as JSON.
 ✔ TMDB integration completed  
 ✔ Streamlit analytics completed  
 ✔ Power BI dashboards completed  
+
+---
+
+##  How to Run
+
+1. Restore SQL database using schema_and_data.sql
+2. Run TMDB enrichment:
+   py tmdb_enrich.py
+3. Start FastAPI:
+   py -m uvicorn main:app --reload
+4. Run Streamlit:
+   py -m streamlit run app.py
+5. Open Power BI file and refresh data
+
 
 ---
 
